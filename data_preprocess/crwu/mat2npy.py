@@ -4,14 +4,34 @@
 @Time:2023/12/17 下午3:31
 @Email: 2909981736@qq.com
 """
+import os
 from matdata_ok import matdata
 from scipy.io import loadmat
+import numpy as np
 
-for mat in matdata:
-    src_data = loadmat(mat['srcurl'])
-    print(src_data['X097_DE_time'])
-
-    break
-
-
-
+for key in matdata.keys():
+    os.mkdir(f'../../data/crwu/{key}')
+    end = key[-2:]
+    dataset = matdata[key]
+    for class_ in dataset:
+        class_dir = f'../../data/crwu/{key}/{str(class_["class"]) + "_" + class_["classname"]}'
+        os.mkdir(class_dir)
+        if 'OR' in class_["classname"]:
+            for i, load in enumerate(class_['srcurl']):
+                one_load_data = []
+                for matfile in load:
+                    mat = loadmat(matfile)
+                    for mat_key in mat.keys():
+                        if end in mat_key:
+                            one_load_data.append(mat[mat_key].ravel())
+                one_load_data_numpy = np.concatenate(one_load_data)
+                np.save(f'{class_dir}/{class_["classname"]+"_"+str(i)+".npy"}', one_load_data_numpy)
+        else:
+            for matfile in class_['srcurl']:
+                mat = loadmat(matfile)
+                for mat_key in mat.keys():
+                    if end in mat_key:
+                        one_load_data_numpy = mat[mat_key].ravel()
+                        np.save(f'{class_dir}/{matfile.split("/")[-1].replace(".mat", ".npy")}', one_load_data_numpy)
+                        break
+        print(class_dir, 'OK')
