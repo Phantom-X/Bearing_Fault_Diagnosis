@@ -25,13 +25,13 @@ for key in matdata.keys():
                         if end in mat_key:
                             one_load_data.append(mat[mat_key].ravel())
                 one_load_data_numpy = np.concatenate(one_load_data)
-                np.save(f'{class_dir}/{class_["classname"]+"_"+str(i)+".npy"}', one_load_data_numpy)
+                np.save(f'{class_dir}/{str(i)+".npy"}', one_load_data_numpy)
         else:
-            for matfile in class_['srcurl']:
+            for i, matfile in enumerate(class_['srcurl']):
                 mat = loadmat(matfile)
                 for mat_key in mat.keys():
                     if end in mat_key:
                         one_load_data_numpy = mat[mat_key].ravel()
-                        np.save(f'{class_dir}/{matfile.split("/")[-1].replace(".mat", ".npy")}', one_load_data_numpy)
+                        np.save(f'{class_dir}/{str(i)+".npy"}', one_load_data_numpy)
                         break
         print(class_dir, 'OK')
