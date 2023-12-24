@@ -9,6 +9,16 @@ from glob import glob
 
 
 def pack_data(data_path, load, save_path, length=1024, step_size=300, count=200, seed=42):
+    """
+    :param data_path:
+    :param load:
+    :param save_path:
+    :param length:
+    :param step_size:
+    :param count:
+    :param seed:
+    :return:
+    """
     np.random.seed(seed)
     classes = glob(data_path + "/*")
     class_num = len(classes)
@@ -28,9 +38,10 @@ def pack_data(data_path, load, save_path, length=1024, step_size=300, count=200,
             sample_index = np.random.choice(np.arange(0, len(window_data)), size=count, replace=False)
             sample_data = window_data[sample_index]
             all_sample_data.extend(sample_data)
-        np.save(f"{save_path}/{data_path.split('/')[-1]}_mix_data.npy", all_sample_data)
+
         labels = np.arange(class_num)
         all_sample_labels = np.repeat(labels, repeats=count)
+        np.save(f"{save_path}/{data_path.split('/')[-1]}_mix_data.npy", all_sample_data)
         np.save(f"{save_path}/{data_path.split('/')[-1]}_mix_labels.npy", all_sample_labels)
 
     else:
@@ -45,9 +56,9 @@ def pack_data(data_path, load, save_path, length=1024, step_size=300, count=200,
             sample_data = window_data[sample_index]
             all_sample_data.extend(sample_data)
 
-        np.save(f"{save_path}/{data_path.split('/')[-1]}_{load}_data.npy", all_sample_data)
         labels = np.arange(class_num)
         all_sample_labels = np.repeat(labels, repeats=count)
+        np.save(f"{save_path}/{data_path.split('/')[-1]}_{load}_data.npy", all_sample_data)
         np.save(f"{save_path}/{data_path.split('/')[-1]}_{load}_labels.npy", all_sample_labels)
 
 
