@@ -127,10 +127,10 @@ def pack_data(data_path, load, save_path, col, length=1024, count=200, seed=42):
 
 
 if __name__ == '__main__':
-    pack_data(data_path='../../data/seu/bearingset', load='20_0', save_path='../../data/seu/packaged', col=1, length=1024, count=980, seed=42)
-    pack_data(data_path='../../data/seu/bearingset', load='30_2', save_path='../../data/seu/packaged', col=1, length=1024, count=980, seed=42)
-    pack_data(data_path='../../data/seu/bearingset', load=-1, save_path='../../data/seu/packaged', col=1, length=1024, count=980, seed=42)
-    pack_data(data_path=['../../data/seu/bearingset', '../../data/seu/gearset'], load='20_0', save_path='../../data/seu/packaged', col=[1, 5], length=1024, count=980, seed=42)
-    pack_data(data_path=['../../data/seu/bearingset', '../../data/seu/gearset'], load='30_2', save_path='../../data/seu/packaged', col=[1, 5], length=1024, count=980, seed=42)
-    pack_data(data_path=['../../data/seu/bearingset', '../../data/seu/gearset'], load=-1, save_path='../../data/seu/packaged', col=[1, 5], length=1024, count=980, seed=42)
+    pack_data(data_path='../../data/SEU/bearingset', load='20_0', save_path='../../data/SEU/packaged', col=1, length=1024, count=980, seed=42)
+    pack_data(data_path='../../data/SEU/bearingset', load='30_2', save_path='../../data/SEU/packaged', col=1, length=1024, count=980, seed=42)
+    pack_data(data_path='../../data/SEU/bearingset', load=-1, save_path='../../data/SEU/packaged', col=1, length=1024, count=980, seed=42)
+    pack_data(data_path=['../../data/SEU/bearingset', '../../data/SEU/gearset'], load='20_0', save_path='../../data/SEU/packaged', col=[1, 5], length=1024, count=980, seed=42)
+    pack_data(data_path=['../../data/SEU/bearingset', '../../data/SEU/gearset'], load='30_2', save_path='../../data/SEU/packaged', col=[1, 5], length=1024, count=980, seed=42)
+    pack_data(data_path=['../../data/SEU/bearingset', '../../data/SEU/gearset'], load=-1, save_path='../../data/SEU/packaged', col=[1, 5], length=1024, count=980, seed=42)
     print('ok')

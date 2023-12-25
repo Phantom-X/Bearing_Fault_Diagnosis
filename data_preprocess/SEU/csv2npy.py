@@ -16,10 +16,10 @@ def detect_delimiter(filename):
         return dialect.delimiter
 
 
-data_root_path = ['../../data/raw_data/seu/bearingset', '../../data/raw_data/seu/gearset']
+data_root_path = ['../../data/raw_data/SEU/bearingset', '../../data/raw_data/SEU/gearset']
 
 for data_root in data_root_path:
-    save_path = f'../../data/seu/{data_root.split("/")[-1]}'
+    save_path = f'../../data/SEU/{data_root.split("/")[-1]}'
     os.mkdir(save_path)
     all_csv = glob(data_root + '/*.csv')
     for one_csv in all_csv:
