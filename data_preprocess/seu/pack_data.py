@@ -10,6 +10,17 @@ from glob import glob
 
 # col=1, 5
 def pack_data(data_path, load, save_path, col, length=1024, count=200, seed=42):
+    """
+
+    :param data_path:
+    :param load:
+    :param save_path:
+    :param col:
+    :param length:
+    :param count:
+    :param seed:
+    :return:
+    """
     np.random.seed(seed)
     if load == -1:
         if isinstance(data_path, str):
