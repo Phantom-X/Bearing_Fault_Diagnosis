@@ -5,15 +5,13 @@
 @Email: 2909981736@qq.com
 """
 
-import h5py
+
 import numpy as np
 
-a = h5py.File('data/raw_Data/JNU/data/data_all.mat')
+a = np.load('data/UPB/packaged/naturally_damaged_N15_M01_F10_data.npy')
+b = np.load('data/UPB/packaged/naturally_damaged_N15_M01_F10_labels.npy')
 
-print(a.keys())
-print(a.values())
+print(a.shape)
+print(b.shape)
+print(b)
 
-for key in a.keys():
-    mat_t = np.transpose(a[key])
-    print(mat_t.shape)
-    # print(mat_t)
