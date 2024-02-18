@@ -49,13 +49,14 @@ class dataLoader:
         val_dataset = TensorDataset(val_data, val_labels)
         test_dataset = TensorDataset(test_data, test_labels)
         val_num = len(val_dataset)
+        train_num = len(train_dataset)
 
         train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
         train_steps = len(train_loader)
         val_loader = DataLoader(val_dataset, batch_size=batch_size, shuffle=False)
         test_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False)
 
-        return train_steps, val_num, train_loader, val_loader, test_loader
+        return train_steps, train_num, val_num, train_loader, val_loader, test_loader
 
 
     @classmethod
@@ -99,13 +100,14 @@ class dataLoader:
         train_dataset, val_dataset, test_dataset = torch.utils.data.random_split(dataset,
                                                                                  [train_size, val_size, test_size])
         val_num = len(val_dataset)
+        train_num = len(train_dataset)
 
         train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
         train_steps = len(train_loader)
         val_loader = DataLoader(val_dataset, batch_size=batch_size, shuffle=False)
         test_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False)
 
-        return train_steps, val_num, train_loader, val_loader, test_loader
+        return train_steps, train_num, val_num, train_loader, val_loader, test_loader
 
 
 if __name__ == '__main__':
