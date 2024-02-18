@@ -50,14 +50,14 @@ class dataLoader:
         test_dataset = TensorDataset(test_data, test_labels)
         val_num = len(val_dataset)
         train_num = len(train_dataset)
+        test_num = len(test_dataset)
 
         train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
         train_steps = len(train_loader)
         val_loader = DataLoader(val_dataset, batch_size=batch_size, shuffle=False)
         test_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False)
 
-        return train_steps, train_num, val_num, train_loader, val_loader, test_loader
-
+        return train_steps, train_num, val_num, test_num, train_loader, val_loader, test_loader
 
     @classmethod
     def sdp(cls, data, labels, save_path=None, batch_size=32, train_ratio=0.8, val_ratio=0.1,
@@ -101,13 +101,14 @@ class dataLoader:
                                                                                  [train_size, val_size, test_size])
         val_num = len(val_dataset)
         train_num = len(train_dataset)
+        test_num = len(test_dataset)
 
         train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
         train_steps = len(train_loader)
         val_loader = DataLoader(val_dataset, batch_size=batch_size, shuffle=False)
         test_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False)
 
-        return train_steps, train_num, val_num, train_loader, val_loader, test_loader
+        return train_steps, train_num, val_num, test_num, train_loader, val_loader, test_loader
 
 
 if __name__ == '__main__':
