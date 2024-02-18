@@ -48,27 +48,27 @@ class dataLoader:
         train_dataset = TensorDataset(train_data, train_labels)
         val_dataset = TensorDataset(val_data, val_labels)
         test_dataset = TensorDataset(test_data, test_labels)
-        train_num = len(train_dataset)
         val_num = len(val_dataset)
 
         train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
+        train_steps = len(train_loader)
         val_loader = DataLoader(val_dataset, batch_size=batch_size, shuffle=False)
         test_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False)
 
-        return train_num, val_num, train_loader, val_loader, test_loader
+        return train_steps, val_num, train_loader, val_loader, test_loader
+
 
     @classmethod
-    def sdp(cls, data, labels, save_path=None, load_path=None, batch_size=32, train_ratio=0.8, val_ratio=0.1,
-              test_ratio=0.1):
-        if save_path:
+    def sdp(cls, data, labels, save_path=None, batch_size=32, train_ratio=0.8, val_ratio=0.1,
+            test_ratio=0.1):
+
+        if len(glob(save_path + "/*")) == 0:
             count = 0
             for one_data, label in tqdm(zip(data, labels), total=len(data), desc="Generate SDP image"):
                 one_data_savepath = f"{save_path}/{int(label)}"
                 os.makedirs(one_data_savepath, exist_ok=True)
                 SDP(one_data, savepath=f"{one_data_savepath}/{int(label)}_{count}")
                 count += 1
-        if not load_path:
-            load_path = save_path
 
         transform = transforms.Compose([
             transforms.Resize((224, 224)),  # 调整图像大小
@@ -78,7 +78,7 @@ class dataLoader:
 
         tensor_images = []
         tensor_labels = []
-        for one_data in glob(f"{load_path}/*/*.png"):
+        for one_data in glob(f"{save_path}/*/*.png"):
             image = Image.open(one_data)
             image = image.convert("RGB")
             transformed_image = transform(image)
@@ -98,17 +98,17 @@ class dataLoader:
 
         train_dataset, val_dataset, test_dataset = torch.utils.data.random_split(dataset,
                                                                                  [train_size, val_size, test_size])
-        train_num = len(train_dataset)
         val_num = len(val_dataset)
 
         train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
+        train_steps = len(train_loader)
         val_loader = DataLoader(val_dataset, batch_size=batch_size, shuffle=False)
         test_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False)
 
-        return train_num, val_num, train_loader, val_loader, test_loader
+        return train_steps, val_num, train_loader, val_loader, test_loader
 
 
 if __name__ == '__main__':
     data = np.load("../data/CRWU/packaged/12kDE_1_data.npy")
     labels = np.load("../data/CRWU/packaged/12kDE_1_labels.npy")
-    dataLoader.sdp(data, labels, load_path="../data/SDP/12kDE_1_data")
+    dataLoader.sdp(data, labels, save_path="../data/SDP/12kDE_1_data")
