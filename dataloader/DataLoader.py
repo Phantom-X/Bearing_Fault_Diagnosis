@@ -15,6 +15,9 @@ from data_preprocess.SDP import SDP
 import torchvision.transforms as transforms
 from sklearn.model_selection import train_test_split
 from torch.utils.data import DataLoader, TensorDataset
+from utils.set_seed import set_seed
+
+set_seed(42)
 
 
 class dataLoader:
@@ -81,7 +84,6 @@ class dataLoader:
             tensor_images.append(transformed_image)
             tensor_labels.append(label)
 
-        # 将图像张量和标签张量转换为张量数据集
         image_tensor = torch.stack(tensor_images)
         # print(image_tensor.shape)
         label_tensor = torch.tensor(tensor_labels)

@@ -8,10 +8,8 @@
 
 import numpy as np
 
-a = np.load('data/UPB/packaged/naturally_damaged_N15_M01_F10_data.npy')
-b = np.load('data/UPB/packaged/naturally_damaged_N15_M01_F10_labels.npy')
+a = np.load('data/JNU/packaged/jnu_r_1000_data.npy')
+b = np.load('data/JNU/packaged/jnu_r_1000_labels.npy')
 
 print(a.shape)
 print(b.shape)
-print(b)
-

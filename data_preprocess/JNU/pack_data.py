@@ -27,7 +27,7 @@ def pack_data(data_path, rotating_speed, save_path, length=1024, step_size=300, 
                 raise ValueError(f"所需数据长度超过数组长度 count({count}) > class_data({len(class_data)})")
             sample_index = np.random.choice(np.arange(0, len(class_data)), size=count, replace=False)
             sample_data = class_data[sample_index]
-            all_sample_data.append(sample_data)
+            all_sample_data.extend(sample_data)
         labels = np.arange(class_num)
         all_sample_labels = np.repeat(labels, repeats=count)
         np.save(f"{save_path}/jnu_r_mix_data.npy", all_sample_data)
@@ -45,7 +45,7 @@ def pack_data(data_path, rotating_speed, save_path, length=1024, step_size=300, 
                 raise ValueError(f"所需数据长度超过数组长度 count({count}) > window_data({len(window_data)})")
             sample_index = np.random.choice(np.arange(0, len(window_data)), size=count, replace=False)
             sample_data = window_data[sample_index]
-            all_sample_data.append(sample_data)
+            all_sample_data.extend(sample_data)
         labels = np.arange(class_num)
         all_sample_labels = np.repeat(labels, repeats=count)
         np.save(f"{save_path}/jnu_r_{rotating_speed}_data.npy", all_sample_data)
@@ -53,6 +53,6 @@ def pack_data(data_path, rotating_speed, save_path, length=1024, step_size=300, 
 
 
 if __name__ == '__main__':
-    pack_data(data_path='../../data/JNU', rotating_speed=-1, save_path='../../data/JNU/packaged', length=1024,
-              step_size=1024, count=1440, seed=42)
+    pack_data(data_path='../../data/JNU', rotating_speed=1000, save_path='../../data/JNU/packaged', length=1024,
+              step_size=1024, count=480, seed=42)
     print("ok")
