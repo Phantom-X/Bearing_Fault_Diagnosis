@@ -24,7 +24,8 @@ class dataLoader:
     def __init__(self):
         super().__init__()
 
-    def signal(self, data, labels, batch_size=32, train_ratio=0.8, val_ratio=0.1, test_ratio=0.1):
+    @classmethod
+    def signal(cls, data, labels, batch_size=32, train_ratio=0.8, val_ratio=0.1, test_ratio=0.1):
         train_data, test_data, train_labels, test_labels = train_test_split(data, labels, test_size=test_ratio,
                                                                             random_state=42)
         train_data, val_data, train_labels, val_labels = train_test_split(train_data, train_labels,
@@ -56,7 +57,8 @@ class dataLoader:
 
         return train_num, val_num, train_loader, val_loader, test_loader
 
-    def image(self, data, labels, save_path=None, load_path=None, batch_size=32, train_ratio=0.8, val_ratio=0.1,
+    @classmethod
+    def sdp(cls, data, labels, save_path=None, load_path=None, batch_size=32, train_ratio=0.8, val_ratio=0.1,
               test_ratio=0.1):
         if save_path:
             count = 0
@@ -107,7 +109,6 @@ class dataLoader:
 
 
 if __name__ == '__main__':
-    dataloader = dataLoader()
     data = np.load("../data/CRWU/packaged/12kDE_1_data.npy")
     labels = np.load("../data/CRWU/packaged/12kDE_1_labels.npy")
-    dataloader.image(data, labels, load_path="../data/SDP/12kDE_1_data")
+    dataLoader.sdp(data, labels, load_path="../data/SDP/12kDE_1_data")
