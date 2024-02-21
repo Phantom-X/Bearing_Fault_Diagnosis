@@ -8,8 +8,8 @@
 
 import numpy as np
 
-a = np.load('data/JNU/packaged/jnu_r_1000_data.npy')
-b = np.load('data/JNU/packaged/jnu_r_1000_labels.npy')
+a = np.load('data/CRWU/packaged/12kDE_1_data.npy')
+b = np.load('data/CRWU/packaged/12kDE_1_labels.npy')
 
 print(a.shape)
 print(b.shape)

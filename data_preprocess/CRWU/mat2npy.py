@@ -10,11 +10,12 @@ from scipy.io import loadmat
 import numpy as np
 
 for key in matdata.keys():
-    os.mkdir(f'../../data/crwu/{key}')
-    end = key[-2:]
+    os.mkdir(f'../../data/CRWUmix/{key}')
+    # end = key[-2:]
+    end = ['DE', 'FE', 'BA']
     dataset = matdata[key]
     for class_ in dataset:
-        class_dir = f'../../data/crwu/{key}/{str(class_["class"]) + "_" + class_["classname"]}'
+        class_dir = f'../../data/CRWUmix/{key}/{str(class_["class"]) + "_" + class_["classname"]}'
         os.mkdir(class_dir)
         if 'OR' in class_["classname"]:
             for i, load in enumerate(class_['srcurl']):
@@ -22,7 +23,7 @@ for key in matdata.keys():
                 for matfile in load:
                     mat = loadmat(matfile)
                     for mat_key in mat.keys():
-                        if end in mat_key:
+                        if any(e in mat_key for e in end):
                             one_load_data.append(mat[mat_key].ravel())
                 one_load_data_numpy = np.concatenate(one_load_data)
                 np.save(f'{class_dir}/{str(i)+".npy"}', one_load_data_numpy)
@@ -30,7 +31,7 @@ for key in matdata.keys():
             for i, matfile in enumerate(class_['srcurl']):
                 mat = loadmat(matfile)
                 for mat_key in mat.keys():
-                    if end in mat_key:
+                    if any(e in mat_key for e in end):
                         one_load_data_numpy = mat[mat_key].ravel()
                         np.save(f'{class_dir}/{str(i)+".npy"}', one_load_data_numpy)
                         break
