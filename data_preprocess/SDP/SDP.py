@@ -131,15 +131,15 @@ def TenSDP(datalist, savepath, g=0.69813172, time_lag=7, symmetry_number=6, imgd
 
 
 if __name__ == '__main__':
-    npydatafile = "../data/CRWU/packaged/12kDE_mix_data.npy"
+    npydatafile = "../../data/CRWU/packaged/12kDE_1_data.npy"
     data = []
     x = np.load(npydatafile)
     for i in range(8, int(x.shape[0]), int(x.shape[0] / 10)):
         print(x[i, :].shape)
         data.append(x[i, :])
 
-    savepath = f'../log/plot/12kDE_mix_data_10类别SDP图像2'
-    TenSDP(data, savepath, g=0.69813172, time_lag=1, pensize=0.1, imgdpi=400)
+    savepath = f'../../log/plot/12kDE_1_data_10类别SDP图像'
+    TenSDP(data, savepath, g=0.69813172, time_lag=1, pensize=0.1, imgdpi=400, show_coordinate_system=False)
 
     # data = readnpy(f'../save_data/npy_data/{npydatafiles[9]:}')
     # savepath = f'../save_data/testSDPimg/小波/SDP'

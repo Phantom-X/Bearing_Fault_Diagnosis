@@ -111,6 +111,6 @@ class dataLoader:
 
 
 if __name__ == '__main__':
-    data = np.load("../data/CRWU/packaged/12kDE_1_data.npy")
-    labels = np.load("../data/CRWU/packaged/12kDE_1_labels.npy")
-    dataLoader.sdp(data, labels, save_path="../data/SDP/12kDE_1_data")
+    data = np.load("../data/CRWU/packaged/12kDE_mix_data.npy")
+    labels = np.load("../data/CRWU/packaged/12kDE_mix_labels.npy")
+    dataLoader.sdp(data, labels, save_path="../data/SDP/12kDE_mix_data")
