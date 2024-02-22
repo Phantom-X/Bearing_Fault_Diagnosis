@@ -4,14 +4,13 @@
 @Time:2023/12/30 下午7:34
 @Email: 2909981736@qq.com
 """
-import cv2
 import torch
 import os.path
 import numpy as np
 from glob import glob
 from PIL import Image
 from tqdm import tqdm
-from data_preprocess.SDP import SDP
+from data_preprocess.SDP.SDP import SDP
 import torchvision.transforms as transforms
 from sklearn.model_selection import train_test_split
 from torch.utils.data import DataLoader, TensorDataset
