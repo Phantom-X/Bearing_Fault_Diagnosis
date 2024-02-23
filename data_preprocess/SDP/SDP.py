@@ -131,7 +131,7 @@ def TenSDP(datalist, savepath, g=0.69813172, time_lag=7, symmetry_number=6, imgd
 
 
 if __name__ == '__main__':
-    npydatafile = "../../data/CRWU/packaged/12kDE_1_data.npy"
+    npydatafile = "../../data/CWRU/packaged/12kDE_1_data.npy"
     data = []
     x = np.load(npydatafile)
     for i in range(8, int(x.shape[0]), int(x.shape[0] / 10)):

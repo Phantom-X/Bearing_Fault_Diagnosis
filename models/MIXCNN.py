@@ -104,8 +104,8 @@ class MIXCNN(nn.Module):
 
 if __name__ == '__main__':
     input = torch.rand(1, 1, 1024).cuda()
-    model1 = MIXCNN(dim_mid=64, conv1_ksize=16, mixconv_ksize=32).cuda()
-    model2 = MIXCNN(dim_mid=128, conv1_ksize=32, mixconv_ksize=64).cuda()
+    model1 = MIXCNN(dim_mid=64, conv1_ksize=16, mixconv_ksize=32, num_classes=10).cuda()
+    model2 = MIXCNN(dim_mid=128, conv1_ksize=32, mixconv_ksize=64, num_classes=10).cuda()
     summary(model2, (1, 1024))
     output = model2(input)
     # output = torch.softmax(output, dim=1)

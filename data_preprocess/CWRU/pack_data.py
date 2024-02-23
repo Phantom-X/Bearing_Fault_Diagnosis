@@ -63,6 +63,6 @@ def pack_data(data_path, load, save_path, length=1024, step_size=300, count=200,
 
 
 if __name__ == '__main__':
-    pack_data(data_path='../../data/CRWU/12kDE', load=-1, save_path='../../data/CRWU/packaged', length=1024,
+    pack_data(data_path='../../data/CWRU/12kDE', load=-1, save_path='../../data/CWRU/packaged', length=1024,
               step_size=207, count=2000, seed=42)
     print('ok')

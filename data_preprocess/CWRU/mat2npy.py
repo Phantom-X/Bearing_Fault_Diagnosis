@@ -10,12 +10,12 @@ from scipy.io import loadmat
 import numpy as np
 
 for key in matdata.keys():
-    os.mkdir(f'../../data/CRWUmix/{key}')
+    os.mkdir(f'../../data/CWRUmix/{key}')
     # end = key[-2:]
     end = ['DE', 'FE', 'BA']
     dataset = matdata[key]
     for class_ in dataset:
-        class_dir = f'../../data/CRWUmix/{key}/{str(class_["class"]) + "_" + class_["classname"]}'
+        class_dir = f'../../data/CWRUmix/{key}/{str(class_["class"]) + "_" + class_["classname"]}'
         os.mkdir(class_dir)
         if 'OR' in class_["classname"]:
             for i, load in enumerate(class_['srcurl']):
