@@ -77,7 +77,7 @@ Github 讨论：欢迎到讨论区[GitHub 讨论](https://github.com/Phantom-X/B
 
 <img src="images/微信.jpg" alt="wechat" title="wechat" width="50%" height="auto">
 
-深度学习&Python&轴承故障诊断交流群，备注：姓名-公司名/高校-方向/职位 (过期加我)
+加入深度学习&Python&轴承故障诊断交流群，处理好的数据集会在群里分享（有新的数据集也可以联系我帮你处理），或者有项目或者需求可以群里讨论，备注：姓名-公司名/高校-方向/职位 (过期加我)，
 
 <img src="images/交流群.jpg" alt="wechat group" title="wechat group" width="50%" height="auto">
 
