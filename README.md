@@ -90,3 +90,5 @@ The license agreement of this project is [GPL-3.0 license](https://github.com/Ph
 https://github.com/liguge/MIXCNN_pytorch
 
 https://github.com/liguge/1D-Grad-CAM-for-interpretable-intelligent-fault-diagnosis
+
+https://github.com/zhiqan/MIXCNN
