@@ -65,6 +65,17 @@ At the same time, if you think this project is good, I hope you will give it a s
 
 If you have any questions or suggestions, please go to issues to ask.
 
+## 联系⭐⭐⭐⭐⭐
+
+Github Issue(建议)：[GitHub 问题](https://github.com/Phantom-X/Bearing_Fault_Diagnosis/issues)
+Github 讨论：欢迎到讨论区[GitHub 讨论](https://github.com/Phantom-X/Bearing_Fault_Diagnosis/discussions)讨论，公开交流纠错技术和问题
+邮件(Email)我：Phantom-X： phantom-x@qq.com
+微信我：加我微信号：QQQQQ2100000，拉你进深度学习&Python&轴承故障诊断交流群，备注：姓名-公司名/高校-方向/职位
+
+<img src="images/微信.jpg" alt="wechat" title="wechat" width="50%" height="auto">
+
+<img src="images/交流群.jpg" alt="wechat group" title="wechat group" width="50%" height="auto">
+
 ## License ⭐⭐⭐⭐⭐
 
 The license agreement of this project is [GPL-3.0 license](https://github.com/Phantom-X/Bearing_Fault_Diagnosis/blob/master/LICENSE). If you use this method (*PhantomCNN*) or other commercial purposes, please attach the project link and license agreement in the description.
