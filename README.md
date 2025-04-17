@@ -73,9 +73,11 @@ Github 讨论：欢迎到讨论区[GitHub 讨论](https://github.com/Phantom-X/B
 
 邮件(Email)我：Phantom-X： phantom-x@qq.com
 
-微信我：加我微信号：QQQQQ2100000，拉你进深度学习&Python&轴承故障诊断交流群，备注：姓名-公司名/高校-方向/职位
+微信我：加我微信号：QQQQQ2100000
 
 <img src="images/微信.jpg" alt="wechat" title="wechat" width="50%" height="auto">
+
+深度学习&Python&轴承故障诊断交流群，备注：姓名-公司名/高校-方向/职位 (过期加我)
 
 <img src="images/交流群.jpg" alt="wechat group" title="wechat group" width="50%" height="auto">
 
